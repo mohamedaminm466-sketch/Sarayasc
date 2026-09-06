@@ -1,0 +1,17 @@
+-- Saraya Inventory v3: shift financial tracking, warehouse-only closing counts and Chicha price
+ALTER TABLE items ADD COLUMN IF NOT EXISTS can_be_front BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE items ADD COLUMN IF NOT EXISTS can_be_warehouse BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE shifts
+  ADD COLUMN IF NOT EXISTS opening_warehouse_stock JSONB NOT NULL DEFAULT '{}'::jsonb,
+  ADD COLUMN IF NOT EXISTS closing_warehouse_stock JSONB NOT NULL DEFAULT '{}'::jsonb,
+  ADD COLUMN IF NOT EXISTS expenses_amount NUMERIC(12,2) NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS expenses_note TEXT NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS manque_amount NUMERIC(12,2) NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS manque_note TEXT NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS actual_cash_counted NUMERIC(12,2),
+  ADD COLUMN IF NOT EXISTS final_shift_note TEXT NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS staff_salary NUMERIC(12,2) NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS recette_breakdown_data JSONB NOT NULL DEFAULT '{}'::jsonb,
+  ADD COLUMN IF NOT EXISTS is_finalized BOOLEAN NOT NULL DEFAULT false;
+CREATE TABLE IF NOT EXISTS app_settings (key VARCHAR(100) PRIMARY KEY,value NUMERIC(12,2) NOT NULL DEFAULT 0,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updated_by INTEGER REFERENCES users(id) ON DELETE SET NULL);
+INSERT INTO app_settings(key,value) VALUES ('chicha_price',7.00) ON CONFLICT(key) DO NOTHING;

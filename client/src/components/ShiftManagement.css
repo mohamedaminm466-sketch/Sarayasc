@@ -1,0 +1,331 @@
+endshift-shell{max-width:1180px;margin:24px auto;padding:28px;background:#fff;border:1px solid #e7ebf3;border-radius:22px;box-shadow:0 20px 55px rgba(20,34,55,.09);color:#1f2937}
+.wizard-topbar,.phase-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:22px;border-bottom:1px solid #edf0f5}
+.wizard-topbar h2,.phase-heading h2{margin:5px 0 8px;font-size:1.65rem;color:#172033}.wizard-topbar p,.phase-heading p{margin:0;color:#6b7280}.phase-kicker,.section-title span{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#6b7280}
+.step-pills{display:flex;gap:8px;flex-wrap:wrap}.step-pills span{padding:9px 12px;border-radius:999px;background:#f2f4f8;color:#778094;font-size:.82rem;font-weight:700}.step-pills .active{background:#172033;color:#fff}
+.wizard-section{margin-top:26px;padding:24px;border:1px solid #e8ecf3;border-radius:18px;background:linear-gradient(180deg,#fff,#fbfcfe)}.section-title{display:flex;justify-content:space-between;gap:18px;margin-bottom:18px}.section-title h3{margin:4px 0 5px;font-size:1.2rem}.section-title p{margin:0;color:#7a8394;font-size:.9rem}
+.closing-stock-grid,.metric-grid,.financial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:15px}.metric-grid.compact{grid-template-columns:1fr}.financial-grid{grid-template-columns:1.2fr 1.2fr .8fr}
+.wizard-input{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}.wizard-input label{font-weight:750;font-size:.9rem;color:#344054}.wizard-input small{display:block;margin-top:3px;font-weight:500;color:#8a94a6}.wizard-input input,.wizard-input textarea{width:100%;box-sizing:border-box;border:1px solid #dce2ec;border-radius:11px;padding:11px 12px;background:#fff;color:#172033;font:inherit;outline:none;transition:.2s}.wizard-input textarea{min-height:70px;resize:vertical}.wizard-input input:focus,.wizard-input textarea:focus{border-color:#465fff;box-shadow:0 0 0 3px rgba(70,95,255,.11)}
+.formula-banner{margin:15px 0 24px;padding:13px 15px;border-radius:12px;background:#eef5ff;border:1px solid #d6e6ff;color:#254b7a}.formula-banner span{margin-left:10px;color:#66809e;font-size:.88rem}.two-columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.financial-entry{background:#fffdf8}
+.wizard-nav{display:flex;justify-content:flex-end;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid #edf0f5}.wizard-nav.split{justify-content:space-between}.btn-large{padding:12px 22px!important;font-weight:800!important}.btn-success{background:#14804a!important;border-color:#14804a!important;color:#fff!important}
+.recette-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:24px 0}.money-card{padding:17px;border-radius:15px;border:1px solid #e5e9f0;background:#fff;display:flex;flex-direction:column;gap:7px}.money-card span{font-size:.82rem;color:#6d7788;font-weight:650}.money-card strong{font-size:1.05rem}.money-card.positive strong,.positive-text{color:#16834d}.money-card.negative strong,.negative-text{color:#d14343}.money-card.final{grid-column:span 2;background:#172033;color:#fff;border-color:#172033}.money-card.final span{color:#c8d0dc}.money-card.final strong{font-size:1.45rem;color:#fff}
+.kamia-check{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 18px;border-radius:14px;margin-bottom:22px}.kamia-check.same{background:#edf9f2;border:1px solid #ccebd8;color:#12643b}.kamia-check.different{background:#fff3f1;border:1px solid #ffd4ce;color:#a9362b}.kamia-check b{margin-left:auto}
+.comparison-table-wrap{overflow:auto;border:1px solid #e9edf3;border-radius:13px;margin-bottom:22px}.comparison-table{width:100%;border-collapse:collapse;min-width:720px}.comparison-table th{background:#f6f8fb;text-align:left;padding:12px;font-size:.78rem;color:#6f7888}.comparison-table td{padding:13px 12px;border-top:1px solid #edf0f4;font-size:.9rem}.diff-ok{color:#14804a;font-weight:800}.diff-warn{color:#b7791f;font-weight:800}.diff-danger{color:#cf3d3d;font-weight:800}.status{font-size:.78rem;font-weight:750;padding:6px 8px;border-radius:999px;display:inline-block}.status-ok{background:#e9f8ef;color:#147944}.status-warn{background:#fff7e5;color:#a36b14}.status-danger{background:#fff0ef;color:#c43b35}
+.mini-summary,.consumed-row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid #edf0f4}.mini-summary span,.consumed-row span{color:#6f7888}.stock-consumed-list{max-height:310px;overflow:auto;padding-right:4px}.empty-state{color:#8b94a4}
+.fix-summary{display:grid;grid-template-columns:1fr auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;background:#f6f8fb;border-radius:14px;margin:20px 0}.fix-summary span{color:#667085;font-size:.88rem}.fix-summary strong{font-size:1.05rem}.fix-list{display:flex;flex-direction:column;gap:10px}.fix-row{display:grid;grid-template-columns:34px minmax(160px,1fr) 160px minmax(180px,1fr);gap:16px;align-items:center;padding:16px;border:1px solid #e8ecf2;border-radius:15px;background:#fff}.fix-row.has-issue{border-left:4px solid #e1a326}.fix-row.ok{opacity:.82}.fix-check input{width:18px;height:18px;accent-color:#172033}.fix-product{display:flex;flex-direction:column;gap:3px}.fix-product small,.fix-action small{color:#7d8797}.fix-edit{display:flex;flex-direction:column;gap:6px}.fix-edit label{font-size:.72rem;color:#7d8797;font-weight:700}.fix-edit input{width:100%;border:1px solid #dce2ec;border-radius:9px;padding:9px}.fix-action{display:flex;flex-direction:column;gap:3px}
+.final-recipe-card{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7ebf1;border-radius:18px;overflow:hidden;margin:22px 0}.final-recipe-card>div{background:#172033;padding:24px;color:#fff;display:flex;flex-direction:column;gap:8px}.final-recipe-card span{color:#c7cfdb;font-size:.85rem}.final-recipe-card strong{font-size:1.7rem}.cash-control{padding:24px;border:1px solid #e8ecf2;border-radius:17px}.cash-control>label{display:block;font-weight:800;margin-bottom:10px}.cash-control>input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #dce2ec;border-radius:11px;font-size:1.05rem}.cash-result{margin-top:16px;padding:16px;border-radius:13px;display:flex;flex-direction:column;gap:5px}.cash-result.same{background:#edf9f2;color:#12643b}.cash-result.missing{background:#fff0ef;color:#a9362b}.cash-result.extra{background:#eef5ff;color:#254b7a}.final-details{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.final-details>div{padding:14px;background:#f7f9fc;border-radius:12px;display:flex;flex-direction:column;gap:5px}.final-details span{font-size:.78rem;color:#7c8697}.final-details b{font-size:.95rem}
+@media(max-width:850px){.endshift-shell{padding:18px;border-radius:15px}.wizard-topbar,.phase-heading{flex-direction:column}.recette-grid{grid-template-columns:1fr 1fr}.money-card.final{grid-column:span 2}.two-columns,.financial-grid{grid-template-columns:1fr}.fix-row{grid-template-columns:30px 1fr}.fix-edit,.fix-action{grid-column:2}.final-details{grid-template-columns:1fr 1fr}.fix-summary{grid-template-columns:1fr 1fr}.kamia-check b{margin-left:0;width:100%}}
+@media(max-width:520px){.recette-grid{grid-template-columns:1fr}.money-card.final{grid-column:auto}.wizard-nav,.wizard-nav.split{flex-direction:column}.wizard-nav .btn{width:100%}.final-recipe-card,.final-details{grid-template-columns:1fr}.step-pills{width:100%}}
+
+/* =========================================================
+   START SHIFT - PROFESSIONAL DESIGN
+========================================================= */
+
+.startshift-shell {
+  animation: startShiftAppear .25s ease;
+}
+
+@keyframes startShiftAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   INFORMATION BANNER
+========================================================= */
+
+.start-info-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.start-info-banner strong {
+  font-size: .95rem;
+}
+
+
+/* =========================================================
+   CURRENT STOCK CARDS
+========================================================= */
+
+.start-stock-card {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 15px;
+  padding: 16px;
+  transition: .2s ease;
+}
+
+.start-stock-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(20, 34, 55, .07);
+}
+
+.start-stock-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.start-stock-card-header strong {
+  color: #172033;
+}
+
+.start-stock-card-header span {
+  font-size: .72rem;
+  color: #788294;
+  background: #f4f6f9;
+  padding: 5px 8px;
+  border-radius: 999px;
+}
+
+.start-stock-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.start-stock-numbers > div {
+  background: #f7f9fc;
+  border-radius: 11px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.start-stock-numbers span {
+  color: #7b8595;
+  font-size: .75rem;
+}
+
+.start-stock-numbers strong {
+  color: #172033;
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   ADD STOCK ROWS
+========================================================= */
+
+.start-add-stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.start-add-row {
+  display: grid;
+  grid-template-columns:
+    minmax(200px, 1.4fr)
+    minmax(150px, .7fr)
+    minmax(150px, .7fr);
+
+  gap: 18px;
+  align-items: center;
+
+  padding: 17px;
+
+  background: #fff;
+
+  border: 1px solid #e7ebf2;
+
+  border-radius: 15px;
+
+  transition: .2s;
+}
+
+.start-add-row:hover {
+  border-color: #d4dbe8;
+  box-shadow: 0 8px 20px rgba(20, 34, 55, .05);
+}
+
+.start-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.start-product-info strong {
+  color: #172033;
+  font-size: .95rem;
+}
+
+.start-product-info small {
+  color: #7b8494;
+  line-height: 1.5;
+}
+
+.start-add-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.start-add-input label {
+  font-size: .72rem;
+  font-weight: 800;
+  color: #778194;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.start-add-input input {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #dce2ec;
+
+  border-radius: 10px;
+
+  padding: 10px 11px;
+
+  font: inherit;
+
+  outline: none;
+}
+
+.start-add-input input:focus {
+  border-color: #465fff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(70, 95, 255, .10);
+}
+
+.start-add-input span {
+  font-size: .75rem;
+  color: #7d8797;
+}
+
+.start-future-stock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 12px;
+
+  background: #f7f9fc;
+
+  border-radius: 11px;
+}
+
+.start-future-stock span {
+  color: #7d8797;
+  font-size: .75rem;
+}
+
+.start-future-stock strong {
+  color: #16834d;
+}
+
+
+/* =========================================================
+   START SUMMARY
+========================================================= */
+
+.start-summary-section {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #fbfcfe
+    );
+}
+
+.start-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 13px;
+
+  margin: 20px 0;
+}
+
+.start-summary-list {
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+.start-summary-list .mini-summary {
+  margin: 0;
+  padding: 14px 16px;
+}
+
+.start-summary-list .mini-summary:last-child {
+  border-bottom: none;
+}
+
+.start-summary-list .mini-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.start-summary-list .mini-summary strong {
+  color: #253044;
+}
+
+.start-summary-list .mini-summary span {
+  font-size: .82rem;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .start-add-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .start-product-info {
+    grid-column: span 2;
+  }
+
+  .start-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .start-add-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .start-product-info {
+    grid-column: auto;
+  }
+
+  .start-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .start-stock-numbers {
+    grid-template-columns: 1fr;
+  }
+
+}
