@@ -351,6 +351,26 @@ function startServer() {
   app.use('/api/', limiter);
 
   // ============================================
+  // ROOT ROUTE
+  // ============================================
+
+  app.get('/', (req, res) => {
+    res.json({
+      name: 'Sarayasc API',
+      status: 'online',
+      version: '2.0.0',
+      endpoints: {
+        auth: '/api/auth',
+        stock: '/api/stock',
+        shifts: '/api/shifts',
+        logs: '/api/logs',
+        health: '/api/health'
+      },
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  // ============================================
   // ROUTES
   // ============================================
 
@@ -373,7 +393,7 @@ function startServer() {
   console.log('   ✅ /api/logs');
 
   // ============================================
-  // ROOT API
+  // API INFO
   // ============================================
 
   app.get('/api', (req, res) => {
