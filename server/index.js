@@ -22,10 +22,16 @@ console.log('🚀 Starting Saraya server...');
 const app = express();
 
 // ============================================
+// TRUST PROXY (Required for Railway)
+// ============================================
+
+app.set('trust proxy', 1);
+
+// ============================================
 // CONFIGURATION
 // ============================================
 
-const PORT = Number(process.env.PORT) || 5000;
+const PORT = Number(process.env.PORT) || 8080;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // ============================================
