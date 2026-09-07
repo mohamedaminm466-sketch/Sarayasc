@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');  // ✅ CHANGED from 'bcrypt' to 'bcryptjs'
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { pool } = require('../db');
 const { verifyToken, requireAdmin } = require('../middleware/auth');
@@ -36,15 +36,10 @@ router.post('/login', async (req, res) => {
     } else {
       user = result.rows[0];
       
-      // For admin, always accept 'admin' password
-      if (user.username === 'admin' && password === 'admin') {
-        // Admin login - always accept
-      } else {
-        // For other users, check password
-        const validPassword = await bcrypt.compare(password, user.password_hash);
-        if (!validPassword) {
-          return res.status(401).json({ error: 'Invalid credentials' });
-        }
+      // Check password for ALL users using bcrypt (including admin)
+      const validPassword = await bcrypt.compare(password, user.password_hash);
+      if (!validPassword) {
+        return res.status(401).json({ error: 'Invalid credentials' });
       }
     }
 
@@ -189,6 +184,61 @@ router.put('/users/:id', verifyToken, requireAdmin, async (req, res) => {
   } catch (err) {
     console.error('Update user error:', err);
     res.status(500).json({ error: 'Failed to update user' });
+  }
+});
+
+// Change own password (any authenticated user)
+router.post('/change-password', verifyToken, async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+
+  if (!oldPassword || !newPassword) {
+    return res.status(400).json({ error: 'Old password and new password are required' });
+  }
+
+  if (newPassword.length < 6) {
+    return res.status(400).json({ error: 'New password must be at least 6 characters' });
+  }
+
+  try {
+    // Get current user
+    const userResult = await pool.query(
+      'SELECT id, username, password_hash FROM users WHERE id = $1',
+      [req.user.id]
+    );
+
+    if (userResult.rows.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const user = userResult.rows[0];
+
+    // Verify old password
+    const validPassword = await bcrypt.compare(oldPassword, user.password_hash);
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Current password is incorrect' });
+    }
+
+    // Hash new password
+    const saltRounds = 10;
+    const newPasswordHash = await bcrypt.hash(newPassword, saltRounds);
+
+    // Update password
+    await pool.query(
+      'UPDATE users SET password_hash = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2',
+      [newPasswordHash, req.user.id]
+    );
+
+    // Log the action
+    await pool.query(
+      `INSERT INTO logs (user_id, username, action, description) 
+       VALUES ($1, $2, $3, $4)`,
+      [req.user.id, req.user.username, 'password_changed', `User ${user.username} changed their password`]
+    );
+
+    res.json({ success: true, message: 'Password changed successfully' });
+  } catch (err) {
+    console.error('Change password error:', err);
+    res.status(500).json({ error: 'Failed to change password' });
   }
 });
 
