@@ -12,35 +12,22 @@ router.post('/login', async (req, res) => {
   
   try {
     // Check if user exists
-    let result = await pool.query(
+    const result = await pool.query(
       'SELECT id, username, password_hash, role, full_name FROM users WHERE username = $1',
       [username]
     );
     
-    let user;
-    let isNewUser = false;
-    
+    // User doesn't exist - reject login
     if (result.rows.length === 0) {
-      // Create user if doesn't exist
-      const saltRounds = 10;
-      const passwordHash = await bcrypt.hash(password, saltRounds);
-      
-      const insertResult = await pool.query(
-        `INSERT INTO users (username, password_hash, role, full_name, is_active) 
-         VALUES ($1, $2, $3, $4, $5) 
-         RETURNING id, username, role, full_name`,
-        [username, passwordHash, 'worker', username, true]
-      );
-      user = insertResult.rows[0];
-      isNewUser = true;
-    } else {
-      user = result.rows[0];
-      
-      // Check password for ALL users using bcrypt (including admin)
-      const validPassword = await bcrypt.compare(password, user.password_hash);
-      if (!validPassword) {
-        return res.status(401).json({ error: 'Invalid credentials' });
-      }
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+    
+    const user = result.rows[0];
+    
+    // Check password for ALL users using bcrypt
+    const validPassword = await bcrypt.compare(password, user.password_hash);
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
 
     const token = jwt.sign(
